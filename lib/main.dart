@@ -18,17 +18,24 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(
+                    'https://oauthprofessor.seduc.ce.gov.br/public/images/login-bg.jpg'), //IMG DE FUNDO
+                fit: BoxFit.cover)),
         padding: EdgeInsets.all(30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              height: 100.0,
-              child: Image.network(
-                  'https://oauthprofessor.seduc.ce.gov.br/public/images/logo-vertical.png'),
+            Stack(
+              children: <Widget>[
+                Align(
+                    alignment: Alignment.topCenter,
+                    child: Image.network(
+                        'https://oauthprofessor.seduc.ce.gov.br/public/images/logo-vertical.png'))
+              ],
             ),
 
             // CPF Text Field
@@ -58,17 +65,15 @@ class Login extends StatelessWidget {
             SizedBox(height: 20.0),
 
             // Login Button
-            ElevatedButton(
-              onPressed: () {
-                // Implement login logic
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => HomePage()));
-              },
-              child: Text('Entrar'),
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                },
+                child: Text('Entrar'),
               ),
             ),
 
