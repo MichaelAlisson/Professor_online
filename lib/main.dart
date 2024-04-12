@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social_button/flutter_social_button.dart';
 
 void main() {
   runApp(MyApp());
@@ -217,7 +218,7 @@ class HomePage extends StatelessWidget {
                   right: 0,
                   child: Image.asset(
                     'assets/img/img_do_topo.jpg', //IMAGEM DO TOPO DA TELA
-                    fit: BoxFit.cover, //OCUPA TODO ESPAÇO DO CONTAINER
+                    fit: BoxFit.cover, //OCUPA ESPAÇO TOTAL DO CONTAINER
                   ),
                 ),
               ],
@@ -226,7 +227,6 @@ class HomePage extends StatelessWidget {
 
           //DRAWER
           drawer: Drawer(
-            /*width: 20, DECIDE O TAMANHO DO MENU QUANDO ABERTO*/
             backgroundColor: Colors.white,
             child: ListView(
               padding:
@@ -235,6 +235,8 @@ class HomePage extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: DrawerHeader(
+                    margin: EdgeInsets.zero,
+                    padding: EdgeInsets.all(30),
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/img/fundo.jpg'),
@@ -249,12 +251,10 @@ class HomePage extends StatelessWidget {
                           color: Colors.black,
                           size: 50,
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
                         Text(
                           'O portal do professor da rede estadual',
                           style: TextStyle(fontSize: 14, color: Colors.white),
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
@@ -302,17 +302,26 @@ class HomePage extends StatelessWidget {
                   title: Text('Sair da conta'), //SAIR DA CONTA
                   leading: Icon(Icons.exit_to_app, color: Color(0xFF537B74)),
                 ),
-                SizedBox(
-                  height: 50,
-                ),
+
+                //RODAPÉ
                 Container(
-                  color: Colors.grey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'Rodapé',
-                      style: TextStyle(color: Colors.white),
-                    ),
+                  child: Column(
+                    children: <Widget>[
+                      Divider(),
+                      Text(
+                        'Informações',
+                      ),
+                      Divider(),
+                      Row(
+                        children: <Widget>[
+                          Text('Desenvolvido por SEDUC'),
+                          SizedBox(width: 50),
+                          Icon(
+                            Icons.facebook,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],
