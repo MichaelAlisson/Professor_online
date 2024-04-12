@@ -19,12 +19,11 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage(
-                    'https://oauthprofessor.seduc.ce.gov.br/public/images/login-bg.jpg'), //IMG DE FUNDO
+                image: AssetImage('assets/img/fundo.jpg'), //IMG DE FUNDO
                 fit: BoxFit.cover)),
-        padding: EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,9 +31,10 @@ class Login extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Align(
-                    alignment: Alignment.topCenter,
-                    child: Image.network(
-                        'https://oauthprofessor.seduc.ce.gov.br/public/images/logo-vertical.png'))
+                  alignment: Alignment.topCenter,
+                  child: Image.asset(
+                      'assets/img/prof_online.png'), //PROFESSOR ONLINE
+                ),
               ],
             ),
 
@@ -118,7 +118,7 @@ class HomePage extends StatelessWidget {
         theme: ThemeData(
           iconTheme: IconThemeData(
             color: Colors.blue,
-            size: 24.0,
+            size: 24,
           ),
         ),
         home: Scaffold(
@@ -128,10 +128,10 @@ class HomePage extends StatelessWidget {
             titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
             actions: <Widget>[
               IconButton(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: const EdgeInsets.only(left: 16),
                 icon: Icon(
                   Icons.refresh,
-                  size: 32.0,
+                  size: 32,
                   color: Colors.white,
                 ),
                 onPressed: null,
@@ -141,8 +141,85 @@ class HomePage extends StatelessWidget {
 
           //BODY
           body: Container(
-            child: Center(
-              child: Text('Nenhum item encontrado!'),
+            child: Stack(
+              //STACK PARA POSICIONAR OS ELEMENTOS UM ACIMA DO OUTRO
+              children: <Widget>[
+                Positioned(
+                    top: 75,
+                    child: Center(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        //TITULO E SUBTITULO
+                        Container(
+                          color: const Color(0xFF0B2DFDC),
+                          width: MediaQuery.of(context).size.width,
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            alignment: Alignment.center,
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  'Professor Online SEDUC',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 5,
+                                  ),
+                                ),
+                                Text(
+                                  'O portal do professor da rede estadual',
+                                  style: TextStyle(fontSize: 4),
+                                ),
+                                DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(0, 151, 136, 100),
+                                  ),
+                                  child: Text(
+                                    'Bem vindo professor Leonardo Carvalho',
+                                    style: TextStyle(fontSize: 4),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ))),
+                Center(
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Column(children: <Widget>[
+                          Icon(
+                            Icons.inbox,
+                            color: Color.fromRGBO(102, 102, 102, 100),
+                            size: 100,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Nenhum item encontrado!',
+                            style: TextStyle(fontSize: 24),
+                          )
+                        ]),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  //SERVE PARA POSICIONAR O ELEMENTO DENTRO DO STACK
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: Image.asset(
+                    'assets/img/img_do_topo.jpg', //IMAGEM DO TOPO DA TELA
+                    fit: BoxFit.cover, //OCUPA TODO ESPAÇO DO CONTAINER
+                  ),
+                ),
+              ],
             ),
           ),
 
@@ -200,7 +277,7 @@ class HomePage extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text('Avaliações e notas'), //AVALIAÇÕES E NOTAS
-                  leading: Icon(Icons.exit_to_app, color: Color(0xFF537B74)),
+                  leading: Icon(Icons.bar_chart, color: Color(0xFF537B74)),
                 ),
                 ListTile(
                   title: Text('Plano de Estudo'), //PLANO DE ESTUDO
@@ -212,7 +289,7 @@ class HomePage extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text('Atividades'), //ATIVIDADES
-                  leading: Icon(Icons.exit_to_app, color: Color(0xFF537B74)),
+                  leading: Icon(Icons.list, color: Color(0xFF537B74)),
                 ),
                 ListTile(
                   title: Text('Sair da conta'), //SAIR DA CONTA
