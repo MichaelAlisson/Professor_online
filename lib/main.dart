@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social_button/flutter_social_button.dart';
 
 void main() {
   runApp(MyApp());
@@ -319,6 +318,8 @@ class HomePage extends StatelessWidget {
                           Icon(
                             Icons.facebook,
                           ),
+                          Icon(Icons.email),
+                          Icon(Icons.reddit)
                         ],
                       ),
                     ],
