@@ -192,18 +192,19 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Column(children: <Widget>[
-                          Icon(
-                            Icons.inbox,
-                            color: Color.fromRGBO(102, 102, 102, 100),
-                            size: 100,
-                          ),
-                          SizedBox(
-                            height: 10,
+                          Padding(
+                            padding: EdgeInsets.only(top: 250),
+                            child: Icon(
+                              Icons.inbox,
+                              color: Color.fromRGBO(102, 102, 102, 100),
+                              size: 150,
+                            ),
                           ),
                           Text(
                             'Nenhum item encontrado!',
                             style: TextStyle(fontSize: 24),
-                          )
+                            textAlign: TextAlign.center,
+                          ),
                         ]),
                       ],
                     ),
