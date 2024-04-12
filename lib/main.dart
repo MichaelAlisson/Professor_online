@@ -235,6 +235,12 @@ class HomePage extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: DrawerHeader(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/img/fundo.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -248,7 +254,7 @@ class HomePage extends StatelessWidget {
                         ),
                         Text(
                           'O portal do professor da rede estadual',
-                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          style: TextStyle(fontSize: 14, color: Colors.white),
                         ),
                       ],
                     ),
